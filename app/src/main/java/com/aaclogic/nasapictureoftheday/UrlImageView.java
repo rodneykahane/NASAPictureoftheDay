@@ -23,6 +23,11 @@ import android.widget.ImageView;
  *
  */
 public class UrlImageView extends android.support.v7.widget.AppCompatImageView {
+    public UrlImageView setImageUrl(String imageUrl) {
+        String mImageUrl = imageUrl;
+        return null;
+    }
+
     private static class UrlLoadingTask extends AsyncTask<URL, Void, Bitmap> {
         private final ImageView updateView;
         private boolean         isCancelled = false;

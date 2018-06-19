@@ -19,6 +19,8 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import com.aaclogic.nasapictureoftheday.UrlImageView;
+
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
@@ -115,14 +117,13 @@ public class MainActivity extends AppCompatActivity {
     private void updateUI(NASADataModel nasaStuff) {
         Log.d("NASA Picture of the day", "inside of updateUI now");
         String picText = nasaStuff.getDesc();
-      //  Log.d("NASA Picture of the day", "value of formatPrice is " + formatPrice);
-        String formattedPrice;
-
-        // NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        //formattedPrice=formatter.format(formatPrice);
-        //setCurrencyType(mCurrencyType);
-      //  Log.d("NASA Picture of the day", "updateUI() the value of mCurrencyType is " + mCurrencyType);
+        String urlText = nasaStuff.getUrl();
         mPicDescTextView.setText(picText);
+
+
+
+        ((UrlImageView)findViewById(R.id.imageNasa)).setImageUrl(urlText); //https://stackoverflow.com/questions/14332296/how-to-set-image-from-url-using-asynctask/15797963#15797963
+
 
     }//end updateUI
 
