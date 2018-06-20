@@ -5,6 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context="com.aaclogic.nasapictureoftheday.MainActivity">
 
     <com.aaclogic.nasapictureoftheday.UrlImageView
@@ -14,14 +15,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="92dp"
         android:scaleType="fitXY" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="70sp"
         android:clipToPadding="true"
-        android:fillViewport="false">
+        android:fillViewport="false"
+        android:paddingLeft="30sp"
+        android:paddingRight="30sp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +38,8 @@
 
                 android:layout_marginBottom="70dp"
                 android:gravity="bottom"
-                android:text="@string/label_desc" />
+                android:text="@string/label_desc"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>
 
