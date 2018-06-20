@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     TextView mPicDescTextView;
     ImageView mPicImageView;
     UrlImageView mImageOfTheDay;
+    TextView mTitleOfTheDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         mPicDescTextView = findViewById(R.id.picDescLabel);
         mPicImageView = findViewById(R.id.imageNasa);
         mImageOfTheDay = findViewById(R.id.imageNasa);
+        mTitleOfTheDay = findViewById(R.id.titleView);
+
 
     }//end onCreate
 
@@ -118,11 +121,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(NASADataModel nasaStuff) {
         Log.d("NASA Picture of the day", "inside of updateUI now");
-        String picText = nasaStuff.getDesc();
-        String urlText = nasaStuff.getUrl();
+        String picText = nasaStuff.getDesc(); //returns the description of the image of the day
+        String urlText = nasaStuff.getUrl(); //retrieves the low res image of the day
+        String titleText = nasaStuff.getTitle();  //gets title of image of the day
 
+        mTitleOfTheDay.setText(titleText);
         mPicDescTextView.setText(picText);
-       // mImageOfTheDay.setImageUrl(urlText); //https://stackoverflow.com/questions/14332296/how-to-set-image-from-url-using-asynctask/15797963#15797963
+        mImageOfTheDay.setImageUrl(urlText); //https://stackoverflow.com/questions/14332296/how-to-set-image-from-url-using-asynctask/15797963#15797963
         new DownloadImageTask((ImageView) findViewById(R.id.imageNasa)) //https://stackoverflow.com/questions/2471935/how-to-load-an-imageview-by-url-in-android
                 .execute(urlText);
 

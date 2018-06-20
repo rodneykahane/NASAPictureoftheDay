@@ -13,13 +13,12 @@ public class NASADataModel {
     //member variables
     private String mUrl;
     private String mDesc;
+    private String mTitle;
 
     //PriceDataModel from a JSON
     @TargetApi(Build.VERSION_CODES.N)
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static NASADataModel fromJSON(JSONObject jsonObject){
-
-        String image="";
 
         try {
 
@@ -30,8 +29,10 @@ public class NASADataModel {
             Log.d("NASA Picture of the day","NASADataModel - the pic url is "+nasaData.mUrl);
 
             nasaData.mDesc = jsonObject.getString("explanation");
-
             Log.d("NASA Picture of the day","NASADataModel - the pic desc is "+nasaData.mDesc);
+
+            nasaData.mTitle = jsonObject.getString("title");
+            Log.d("NASA Picture of the day","NASADataModel - the pic title is "+nasaData.mTitle);
 
             return nasaData;
         } catch(JSONException e){
@@ -47,5 +48,9 @@ public class NASADataModel {
 
     public String getDesc() {
         return mDesc;
+    }
+
+    public String getTitle(){
+        return mTitle;
     }
 }
