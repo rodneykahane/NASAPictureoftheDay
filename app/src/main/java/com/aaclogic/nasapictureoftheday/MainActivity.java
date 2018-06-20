@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     // Member Variables:
     TextView mPicDescTextView;
     ImageView mPicImageView;
+    UrlImageView mImageOfTheDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         mPicDescTextView = findViewById(R.id.picDescLabel);
         mPicImageView = findViewById(R.id.imageNasa);
+        mImageOfTheDay = findViewById(R.id.imageNasa);
 
     }//end onCreate
 
@@ -118,11 +120,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("NASA Picture of the day", "inside of updateUI now");
         String picText = nasaStuff.getDesc();
         String urlText = nasaStuff.getUrl();
+
         mPicDescTextView.setText(picText);
-
-
-
-        ((UrlImageView)findViewById(R.id.imageNasa)).setImageUrl(urlText); //https://stackoverflow.com/questions/14332296/how-to-set-image-from-url-using-asynctask/15797963#15797963
+       // mImageOfTheDay.setImageUrl(urlText); //https://stackoverflow.com/questions/14332296/how-to-set-image-from-url-using-asynctask/15797963#15797963
+        new DownloadImageTask((ImageView) findViewById(R.id.imageNasa))
+                .execute(urlText);
 
 
     }//end updateUI
