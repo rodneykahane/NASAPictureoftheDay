@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         mPicDescTextView.setText(picText);
        // mImageOfTheDay.setImageUrl(urlText); //https://stackoverflow.com/questions/14332296/how-to-set-image-from-url-using-asynctask/15797963#15797963
-        new DownloadImageTask((ImageView) findViewById(R.id.imageNasa))
+        new DownloadImageTask((ImageView) findViewById(R.id.imageNasa)) //https://stackoverflow.com/questions/2471935/how-to-load-an-imageview-by-url-in-android
                 .execute(urlText);
 
 
