@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NASA Picture of the Day</string>
+    <string name="app_name">Space and Astronomy Picture of the Day</string>
     <string name="image_desc">NASA\'s Image of the day</string>
     <string name="label_desc">NASA\'s Image of the day</string>
     <string name="title_desc">NASA\'s Image of the day</string>
